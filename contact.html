@@ -162,12 +162,12 @@
         body: JSON.stringify(data)
       });
       const json = await res.json();
-      if (!res.ok || json.success === 'false' || json.success === false) throw new Error(json.message);
+      if (!res.ok || json.success === 'false' || json.success === false) throw new Error(json.message || '');
       form.reset();
       status.textContent = 'Thanks! Your message is on its way. 🍵';
       status.className = 'status ok';
     } catch (err) {
-      status.textContent = "Something went wrong sending that. Please try again in a moment.";
+      status.textContent = err.message || "Something went wrong sending that. Please try again in a moment.";
       status.className = 'status err';
     } finally {
       btn.disabled = false;
