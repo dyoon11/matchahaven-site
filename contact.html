@@ -84,7 +84,7 @@
     <h1>Say Hello</h1>
     <p class="lede">Questions, bug reports, press or just want to share your haven? Send a note and we'll get back to you.</p>
 
-    <form id="contact-form" action="https://formsubmit.co/nordhaus196@gmail.com" method="POST" novalidate>
+    <form id="contact-form" action="https://formsubmit.co/d04cc5c34da79dae73a9f1c858890328" method="POST" novalidate>
       <!-- FormSubmit settings -->
       <input type="hidden" name="_subject" value="New Matcha Haven contact message">
       <input type="hidden" name="_template" value="table">
@@ -156,7 +156,7 @@
     const data = Object.fromEntries(new FormData(form));
     data._replyto = data.email;
     try {
-      const res = await fetch('https://formsubmit.co/ajax/nordhaus196@gmail.com', {
+      const res = await fetch('https://formsubmit.co/ajax/d04cc5c34da79dae73a9f1c858890328', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(data)
