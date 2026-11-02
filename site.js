@@ -3,15 +3,20 @@
   var bar = document.querySelector(".topbar");
   var menu = document.querySelector(".menu-button");
   if (bar && menu) {
-    menu.addEventListener("click", function () {
-      var open = bar.classList.toggle("open");
+    var setOpen = function (open) {
+      bar.classList.toggle("open", open);
       menu.setAttribute("aria-expanded", open ? "true" : "false");
-    });
+      menu.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    };
+    menu.addEventListener("click", function () { setOpen(!bar.classList.contains("open")); });
     bar.querySelectorAll(".links a").forEach(function (a) {
-      a.addEventListener("click", function () {
-        bar.classList.remove("open");
-        menu.setAttribute("aria-expanded", "false");
-      });
+      a.addEventListener("click", function () { setOpen(false); });
+    });
+    document.addEventListener("click", function (event) {
+      if (bar.classList.contains("open") && !bar.contains(event.target)) setOpen(false);
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && bar.classList.contains("open")) { setOpen(false); menu.focus(); }
     });
   }
 

@@ -79,14 +79,34 @@ a { color: var(--link); font-weight: 700; }
 
 .menu-button {
   display: none;
+  position: relative;
+  flex: none;
+  width: 46px;
+  height: 46px;
+  padding: 0;
   background: var(--cream);
-  color: var(--wood-dark);
   border: 3px solid var(--wood-dark);
-  border-radius: 10px;
-  font: 600 18px "Pixelify Sans", system-ui, sans-serif;
-  padding: 4px 12px;
+  border-radius: 12px;
+  box-shadow: 0 3px 0 var(--wood-dark);
   cursor: pointer;
 }
+.menu-button:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--wood-dark); }
+.menu-button:focus-visible { outline: 3px solid var(--cream); outline-offset: 2px; }
+.menu-button span {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--wood-dark);
+  transition: transform .2s ease, opacity .15s ease, top .2s ease;
+}
+.menu-button span:nth-child(1) { top: 10px; }
+.menu-button span:nth-child(2) { top: 18px; }
+.menu-button span:nth-child(3) { top: 26px; }
+.topbar.open .menu-button span:nth-child(1) { top: 18px; transform: rotate(45deg); }
+.topbar.open .menu-button span:nth-child(2) { opacity: 0; }
+.topbar.open .menu-button span:nth-child(3) { top: 18px; transform: rotate(-45deg); }
 
 /* ---------- hero ---------- */
 
@@ -440,9 +460,27 @@ footer p { margin: 10px 0 0; font-size: 15px; opacity: .9; }
 @media (max-width: 640px) {
   body { font-size: 17px; }
   .menu-button { display: block; }
-  .topbar nav { flex-wrap: wrap; }
-  .topbar .links { display: none; width: 100%; flex-direction: column; padding: 6px 0 4px; }
+  .topbar nav { position: relative; }
+  .topbar .links {
+    display: none;
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    padding: 6px 16px 12px;
+    background: var(--wood);
+    border-bottom: 5px solid var(--wood-dark);
+    box-shadow: 0 12px 24px rgba(63, 42, 29, 0.3);
+  }
   .topbar.open .links { display: flex; }
+  .topbar .links a.link {
+    padding: 14px 8px;
+    border-radius: 0;
+    border-bottom: 2px solid rgba(255, 246, 228, 0.18);
+  }
+  .topbar .links a.link:last-child { border-bottom: none; }
+  .topbar .links a.link:hover, .topbar .links a.link:focus-visible { background: rgba(255, 246, 228, 0.12); border-radius: 10px; }
   .topbar .home img { height: 38px; }
   .hero-card { margin: -40px 16px 0; padding: 20px 18px 22px; }
   .features, .gallery { grid-template-columns: 1fr; }

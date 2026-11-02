@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact · Matcha Haven</title>
+  <meta name="description" content="Get in touch with the Matcha Haven team.">
+  <meta name="theme-color" content="#7fbf5a">
+  <link rel="icon" href="img/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&family=Pixelify+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="typography.css">
+  <style>
+    .contact-wrap { max-width: 640px; margin: 48px auto 72px; padding: 0 16px; }
+    .contact-card {
+      background: var(--parchment);
+      border: 3px solid var(--parchment-edge);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 32px 28px;
+    }
+    .contact-card h1 { margin: 0 0 6px; color: var(--leaf-dark); }
+    .contact-card .lede { margin: 0 0 24px; color: var(--ink-soft); }
+    .field { margin-bottom: 18px; }
+    .field label { display: block; font-weight: 800; margin-bottom: 6px; }
+    .field .hint { font-weight: 400; color: var(--ink-soft); font-size: 15px; }
+    .field input, .field select, .field textarea {
+      width: 100%;
+      font: inherit;
+      color: var(--ink);
+      background: var(--cream);
+      border: 2px solid var(--parchment-edge);
+      border-radius: 12px;
+      padding: 12px 14px;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    .field textarea { min-height: 160px; resize: vertical; }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      outline: none;
+      border-color: var(--meadow-dark);
+      box-shadow: 0 0 0 4px rgba(127, 191, 90, .3);
+    }
+    .field input:user-invalid, .field textarea:user-invalid { border-color: #c0533a; }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 560px) { .row { grid-template-columns: 1fr; } }
+    .check { display: flex; gap: 10px; align-items: flex-start; margin: 4px 0 22px; }
+    .check input { width: 20px; height: 20px; margin-top: 4px; accent-color: var(--meadow-dark); }
+    .hp { position: absolute; left: -9999px; }
+    .contact-card button.btn {
+      width: 100%; cursor: pointer;
+      display: flex; justify-content: center; align-items: center; text-align: center;
+      padding: 14px; border-radius: 14px; border: none;
+      color: var(--cream); background: var(--leaf);
+      box-shadow: 0 5px 0 var(--leaf-dark);
+      transition: transform .08s, box-shadow .08s;
+    }
+    .contact-card button.btn:hover { background: var(--meadow-dark); }
+    .contact-card button.btn:active { transform: translateY(4px); box-shadow: 0 1px 0 var(--leaf-dark); }
+    .contact-card button.btn:disabled { opacity: .7; cursor: wait; }
+    .status { margin-top: 16px; padding: 12px 14px; border-radius: 12px; display: none; font-weight: 700; }
+    .status.ok { display: block; background: #e3f3d6; color: var(--leaf-dark); }
+    .status.err { display: block; background: #f8dcd2; color: #8a2f1c; }
+  </style>
+</head>
+<body>
+<header class="topbar">
+  <nav aria-label="Main">
+    <a class="home" href="index.html"><img src="img/logo.png" alt="Matcha Haven"></a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="links" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <div class="links" id="links">
+      <a class="link" href="index.html#about">About</a>
+      <a class="link" href="index.html#trailer">Trailer</a>
+      <a class="link" href="index.html#features">Features</a>
+      <a class="link" href="index.html#gallery">Gallery</a>
+      <a class="link" href="support.html">Support</a>
+    </div>
+  </nav>
+</header>
+
+<main class="contact-wrap">
+  <div class="contact-card">
+    <h1>Say Hello</h1>
+    <p class="lede">Questions, bug reports, press or just want to share your haven? Send a note and we'll get back to you.</p>
+
+    <form id="contact-form" action="https://formsubmit.co/nordhaus196@gmail.com" method="POST" novalidate>
+      <!-- FormSubmit settings -->
+      <input type="hidden" name="_subject" value="New Matcha Haven contact message">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <div class="row">
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required maxlength="80">
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required maxlength="120">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="topic">Topic</label>
+        <select id="topic" name="topic">
+          <option>General question</option>
+          <option>Bug report</option>
+          <option>TestFlight / beta access</option>
+          <option>Press &amp; partnerships</option>
+          <option>Feedback &amp; ideas</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="message">Message <span class="hint">(device and iOS version help with bugs)</span></label>
+        <textarea id="message" name="message" required minlength="10" maxlength="4000"></textarea>
+      </div>
+
+      <label class="check">
+        <input type="checkbox" name="updates" value="Yes">
+        <span>Also sign me up for news, sneak peeks and the launch date.</span>
+      </label>
+
+      <button class="btn" type="submit">Send Message</button>
+      <div id="status" class="status" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <img src="img/logo.png" alt="Matcha Haven">
+  <div>
+    <a href="support.html">Support</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <p>© 2026 Daniel Yoon. All rights reserved.</p>
+</footer>
+
+<script>
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('status');
+  const btn = form.querySelector('button[type=submit]');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    status.className = 'status';
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    const data = Object.fromEntries(new FormData(form));
+    data._replyto = data.email;
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/nordhaus196@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      const json = await res.json();
+      if (!res.ok || json.success === 'false' || json.success === false) throw new Error(json.message);
+      form.reset();
+      status.textContent = 'Thanks! Your message is on its way. 🍵';
+      status.className = 'status ok';
+    } catch (err) {
+      status.textContent = "Something went wrong sending that. Please try again in a moment.";
+      status.className = 'status err';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Send Message';
+    }
+  });
+</script>
+<script src="site.js"></script>
+</body>
+</html>
