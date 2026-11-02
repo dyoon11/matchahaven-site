@@ -4,44 +4,147 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Matcha Haven</title>
-<meta name="description" content="Grow tea, whisk matcha and run your own cozy cafe on a little island.">
+<meta name="description" content="Matcha Haven is a cozy farming and cafe game. Grow tea, whisk matcha, serve customers and turn a tiny shop into a matcha palace. Coming to iPhone and iPad.">
+<meta property="og:title" content="Matcha Haven">
+<meta property="og:description" content="Grow tea, whisk matcha and run your own cozy cafe on a little island.">
+<meta property="og:image" content="https://help.matchahavengame.com/img/hero.jpg">
+<meta name="theme-color" content="#a8673a">
 <link rel="icon" href="img/icon.png">
+<link rel="apple-touch-icon" href="img/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&family=Pixelify+Sans:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <nav>
-    <a class="brand" href="index.html"><img src="img/icon.png" alt="">Matcha Haven</a>
-    <a class="link" href="support.html">Support</a>
-    <a class="link" href="privacy.html">Privacy</a>
-    <a class="link" href="https://matchahavengame.com">Contact</a>
+
+<header class="topbar">
+  <nav aria-label="Main">
+    <a class="home" href="index.html"><img src="img/logo.png" alt="Matcha Haven"></a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="links">Menu</button>
+    <div class="links" id="links">
+      <a class="link" href="index.html#about">About</a>
+      <a class="link" href="index.html#trailer">Trailer</a>
+      <a class="link" href="index.html#features">Features</a>
+      <a class="link" href="index.html#gallery">Gallery</a>
+      <a class="link" href="support.html">Support</a>
+    </div>
   </nav>
 </header>
+
+<div class="hero">
+  <img class="hero-art" src="img/hero.jpg" alt="Matcha Haven: a cozy matcha cafe in the woods, with a friendly cow out front">
+  <img class="bee b1" src="img/bee1.png" alt="">
+  <img class="bee b2" src="img/bee2.png" alt="">
+  <img class="bee b3" src="img/bee3.png" alt="">
+  <div class="hero-card">
+    <h1 class="tagline">Your cozy little cafe awaits.</h1>
+    <p>Grow your own tea, whisk it into matcha, and run the cafe of your dreams on an island full of friends.</p>
+    <div class="platforms">Coming soon to iPhone &amp; iPad</div>
+    <div class="buttons">
+      <a class="btn" href="#trailer">&#9654; Watch the Trailer</a>
+      <a class="btn wood" href="https://matchahavengame.com">Get Updates</a>
+    </div>
+  </div>
+</div>
+
 <main>
-  <section class="hero">
-    <img class="icon" src="img/icon.png" alt="Matcha Haven app icon">
-    <h1>Matcha Haven</h1>
-    <p>Grow tea, whisk matcha and run your own cozy cafe on a little island.</p>
+
+  <section id="about">
+    <h2 class="sign">About the Game</h2>
+    <div class="about parchment">
+      <div>
+        <p class="lead">You've just arrived on a little island with a seed, a watering can and a dream: the best matcha in the world.</p>
+        <p>Plant tea and care for it day by day. Grind the leaves into matcha powder, then mix it with milks, sweeteners, foam, boba and fruit from every corner of the island to make over 100 different drinks.</p>
+        <p>Serve the villagers who line up at your counter, earn coins, and upgrade Matcha Haven from a tiny shop into a matcha palace. Decorate it your way, build a home, adopt a dog or cat, and explore new lands when you're ready for an adventure.</p>
+      </div>
+      <div class="framed"><img src="img/gallery/cafe.jpg" alt="A decorated Matcha Haven cafe full of baskets and tables" loading="lazy"></div>
+    </div>
   </section>
 
-  <section class="shots">
-    <img src="img/2_village.jpg" alt="The village">
-    <img src="img/3_cafe.jpg" alt="Serving customers at the cafe">
-    <img src="img/4_market.jpg" alt="The Night Market">
-    <img src="img/5_winter.jpg" alt="Winter Land">
+  <section id="trailer">
+    <h2 class="sign">Trailer</h2>
+    <div class="trailer-frame">
+      <video controls preload="none" playsinline poster="img/trailer-poster.jpg">
+        <source src="media/trailer.mp4" type="video/mp4">
+        Your browser can't play this video. <a href="media/trailer.mp4">Download the trailer</a>.
+      </video>
+    </div>
   </section>
 
-  <section class="features">
-    <div class="card"><h3>Grow your own matcha</h3><p>Plant tea, water your crops and turn the leaves into matcha powder.</p></div>
-    <div class="card"><h3>Run your cafe</h3><p>Serve customers, earn coins and grow a tiny shop into a matcha palace.</p></div>
-    <div class="card"><h3>Over 100 drinks</h3><p>Mix milks, sweeteners, foam, boba and fruit from all over the island.</p></div>
-    <div class="card"><h3>Explore new lands</h3><p>The Wilderness, Fall Land, Winter Land, Desert Land, the mine and the Night Market.</p></div>
+  <section id="features">
+    <h2 class="sign">Features</h2>
+    <div class="features">
+      <article class="feature parchment">
+        <img src="img/gallery/first-cafe.jpg" alt="Customers lining up at the counter" loading="lazy">
+        <div class="body"><h3>Run Your Own Cafe</h3><p>Stock your baskets, serve customers as they line up, and earn coins every in-game day.</p></div>
+      </article>
+      <article class="feature parchment">
+        <img src="img/gallery/village.jpg" alt="The village with paths, lanterns and shops" loading="lazy">
+        <div class="body"><h3>Grow Your Matcha</h3><p>Plant tea, water your crops, and grow your farm with fruit trees and greenhouses.</p></div>
+      </article>
+      <article class="feature parchment">
+        <img src="img/gallery/home.jpg" alt="A cozy furnished house" loading="lazy">
+        <div class="body"><h3>Make It Home</h3><p>Decorate your cafe and house with hundreds of pieces, and adopt a dog or cat.</p></div>
+      </article>
+      <article class="feature parchment">
+        <img src="img/gallery/night-market.jpg" alt="The Night Market with colorful stalls" loading="lazy">
+        <div class="body"><h3>Over 100 Drinks</h3><p>Trade for rare ingredients at the Night Market and invent new recipes.</p></div>
+      </article>
+      <article class="feature parchment">
+        <img src="img/gallery/winter.jpg" alt="Snowy Winter Land with a gingerbread house" loading="lazy">
+        <div class="body"><h3>Explore New Lands</h3><p>The Wilderness, Fall Land, Winter Land, Desert Land and the mines all wait to be found.</p></div>
+      </article>
+      <article class="feature parchment">
+        <img src="img/gallery/festival.jpg" alt="A festive winter cafe with villagers" loading="lazy">
+        <div class="body"><h3>Cozy Minigames</h3><p>Help Pauly protect the cows, race through snowy peaks and survive Pumpkin Panic.</p></div>
+      </article>
+    </div>
   </section>
+
+  <section id="gallery">
+    <h2 class="sign">Gallery</h2>
+    <div class="gallery">
+      <button type="button" data-caption="The village"><img src="img/gallery/village.jpg" alt="The village" loading="lazy"></button>
+      <button type="button" data-caption="Your cafe, all grown up"><img src="img/gallery/cafe.jpg" alt="Your cafe, all grown up" loading="lazy"></button>
+      <button type="button" data-caption="A home of your own"><img src="img/gallery/home.jpg" alt="A home of your own" loading="lazy"></button>
+      <button type="button" data-caption="The Night Market"><img src="img/gallery/night-market.jpg" alt="The Night Market" loading="lazy"></button>
+      <button type="button" data-caption="Fall Land"><img src="img/gallery/fall.jpg" alt="Fall Land" loading="lazy"></button>
+      <button type="button" data-caption="Winter Land"><img src="img/gallery/winter.jpg" alt="Winter Land" loading="lazy"></button>
+      <button type="button" data-caption="Desert Land"><img src="img/gallery/desert.jpg" alt="Desert Land" loading="lazy"></button>
+      <button type="button" data-caption="The mines"><img src="img/gallery/mine.jpg" alt="The mines" loading="lazy"></button>
+      <button type="button" data-caption="A festive day in the village"><img src="img/gallery/festival.jpg" alt="A festive day in the village" loading="lazy"></button>
+    </div>
+  </section>
+
+  <section class="band">
+    <h2>Join the Haven</h2>
+    <p>Sign up for news, sneak peeks and the launch date.</p>
+    <a class="btn wood" href="https://matchahavengame.com">Sign Up for Updates</a>
+  </section>
+
 </main>
+
+<dialog class="lightbox" aria-label="Screenshot">
+  <img src="" alt="">
+  <div class="controls">
+    <button type="button" data-step="-1" aria-label="Previous screenshot">&#9664;</button>
+    <span class="caption"></span>
+    <button type="button" data-step="1" aria-label="Next screenshot">&#9654;</button>
+    <button type="button" data-close aria-label="Close">&#10005;</button>
+  </div>
+</dialog>
+
 <footer>
-  &copy; 2026 Daniel Yoon &middot; <a href="support.html">Support</a> &middot; <a href="privacy.html">Privacy Policy</a>
+  <img src="img/logo.png" alt="Matcha Haven">
+  <div>
+    <a href="support.html">Support</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="https://matchahavengame.com">Contact</a>
+  </div>
+  <p>&copy; 2026 Daniel Yoon. All rights reserved.</p>
 </footer>
+
+<script src="site.js"></script>
 </body>
 </html>

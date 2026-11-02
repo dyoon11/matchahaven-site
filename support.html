@@ -4,21 +4,33 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Support | Matcha Haven</title>
+<meta name="description" content="Matcha Haven is a cozy farming and cafe game. Grow tea, whisk matcha, serve customers and turn a tiny shop into a matcha palace. Coming to iPhone and iPad.">
+<meta name="theme-color" content="#a8673a">
 <link rel="icon" href="img/icon.png">
+<link rel="apple-touch-icon" href="img/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&family=Pixelify+Sans:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <nav>
-    <a class="brand" href="index.html"><img src="img/icon.png" alt="">Matcha Haven</a>
-    <a class="link" href="support.html">Support</a>
-    <a class="link" href="privacy.html">Privacy</a>
-    <a class="link" href="https://matchahavengame.com">Contact</a>
+
+<header class="topbar">
+  <nav aria-label="Main">
+    <a class="home" href="index.html"><img src="img/logo.png" alt="Matcha Haven"></a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="links">Menu</button>
+    <div class="links" id="links">
+      <a class="link" href="index.html#about">About</a>
+      <a class="link" href="index.html#trailer">Trailer</a>
+      <a class="link" href="index.html#features">Features</a>
+      <a class="link" href="index.html#gallery">Gallery</a>
+      <a class="link" href="support.html">Support</a>
+    </div>
   </nav>
 </header>
-<main class="page">
+
+<main>
+<article class="page parchment">
   <h1>Support</h1>
   <p>Found a bug, stuck somewhere, or have an idea? Send us a message and we'll get back to you.</p>
   <p class="note">Contact us: use the <a href="https://matchahavengame.com">Contact Us form at matchahavengame.com</a>.</p>
@@ -37,9 +49,19 @@
 
   <h3>The game feels slow on my device.</h3>
   <p>Try closing other apps. If it's still slow, send us your device model so we can make it run better.</p>
+</article>
 </main>
+
 <footer>
-  &copy; 2026 Daniel Yoon &middot; <a href="support.html">Support</a> &middot; <a href="privacy.html">Privacy Policy</a>
+  <img src="img/logo.png" alt="Matcha Haven">
+  <div>
+    <a href="support.html">Support</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="https://matchahavengame.com">Contact</a>
+  </div>
+  <p>&copy; 2026 Daniel Yoon. All rights reserved.</p>
 </footer>
+
+<script src="site.js"></script>
 </body>
 </html>
