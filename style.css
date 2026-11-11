@@ -525,17 +525,48 @@ footer p { margin: 10px 0 0; font-size: 15px; opacity: .9; }
 .hero .hero-card {
   z-index: 3;
   max-width: 760px;
-  padding: 18px 28px 22px;
-  background: repeating-linear-gradient(180deg, var(--wood-light) 0 22px, var(--wood) 22px 24px);
+  margin: 18px auto 0;
+  padding: 0 16px;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .hero .tagline {
   margin: 0 0 12px;
-  color: var(--cream);
-  text-shadow:
-    -3px 0 var(--leaf-dark), 3px 0 var(--leaf-dark), 0 -3px var(--leaf-dark), 0 3px var(--leaf-dark),
-    -2px -2px var(--leaf-dark), 2px 2px var(--leaf-dark), -2px 2px var(--leaf-dark), 2px -2px var(--leaf-dark);
+  font-family: var(--font-body);
+  font-size: clamp(30px, 3.8vw, 50px);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--leaf-dark);
+  text-shadow: none;
 }
+
+.hero .platforms {
+  margin-bottom: 18px;
+  padding: 5px 14px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0;
+  color: var(--leaf-dark);
+  background: rgba(255, 246, 228, .94);
+}
+
+.hero .btn, .hero .btn.wood {
+  padding: 12px 26px;
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 800;
+  border: 0;
+  border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(30, 18, 8, .28);
+}
+.hero .btn { color: #fff; background: var(--leaf); }
+.hero .btn.wood { color: var(--ink); background: var(--cream); }
+.hero .btn:hover, .hero .btn.wood:hover { transform: translateY(-2px); box-shadow: 0 9px 22px rgba(30, 18, 8, .32); }
+.hero .btn:active, .hero .btn.wood:active { transform: translateY(1px); box-shadow: 0 3px 10px rgba(30, 18, 8, .3); }
 
 .follow { position: relative; display: flex; }
 .follow .btn { cursor: pointer; }
@@ -670,6 +701,16 @@ footer p { margin: 10px 0 0; font-size: 15px; opacity: .9; }
     -webkit-mask-image: none;
             mask-image: none;
   }
+  .hero-clip::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    height: 58%;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(28, 18, 10, 0), rgba(28, 18, 10, .62) 72%);
+  }
+  .hero .tagline { color: #fff; text-shadow: 0 2px 16px rgba(28, 18, 10, .6), 0 1px 2px rgba(28, 18, 10, .55); }
+
   .hero .hero-card {
     position: absolute;
     left: 50%;
@@ -690,10 +731,10 @@ footer p { margin: 10px 0 0; font-size: 15px; opacity: .9; }
 
 @media (max-width: 640px) {
   .nav-socials { margin: 12px 8px 4px; gap: 12px; }
-  .hero .hero-card { padding: 16px 16px 20px; }
-  .hero .tagline { font-size: 28px; }
+  .hero .hero-card { margin-top: 10px; padding: 0 16px; }
+  .hero .tagline { font-size: 29px; }
   .hero .platforms { font-size: 15px; margin-bottom: 14px; }
   .hero .buttons { gap: 8px; flex-wrap: nowrap; }
-  .hero .btn { padding: 9px 11px; font-size: 16px; white-space: nowrap; }
+  .hero .btn, .hero .btn.wood { padding: 11px 16px; font-size: 16px; white-space: nowrap; }
   .follow-pop { bottom: calc(100% + 10px); }
 }
