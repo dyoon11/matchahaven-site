@@ -422,6 +422,7 @@ footer {
 
 footer img { height: 70px; width: auto; margin: 0 auto 12px; }
 footer a { color: var(--cream); margin: 0 10px; }
+footer .socials { margin-top: 8px; }
 footer p { margin: 10px 0 0; font-size: 15px; opacity: .9; }
 
 /* ---------- bees ---------- */
