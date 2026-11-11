@@ -738,3 +738,94 @@ footer p { margin: 10px 0 0; font-size: 15px; opacity: .9; }
   .hero .btn, .hero .btn.wood { padding: 11px 16px; font-size: 16px; white-space: nowrap; }
   .follow-pop { bottom: calc(100% + 10px); }
 }
+
+/* ---------- clean matcha menu bar and trailer frame ---------- */
+
+.topbar {
+  background: var(--leaf-dark);
+  border-bottom: 0;
+  box-shadow: 0 6px 20px rgba(30, 18, 8, .18);
+}
+
+.topbar.over-hero::before {
+  background: var(--leaf-dark);
+  border-bottom: 0;
+  box-shadow: 0 6px 20px rgba(30, 18, 8, .18);
+}
+
+.topbar nav a.link {
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 800;
+  text-shadow: none;
+}
+.topbar.over-hero:not(.scrolled) nav a.link { text-shadow: 0 1px 6px rgba(28, 18, 10, .6); }
+
+.nav-socials a {
+  color: var(--cream);
+  background: rgba(255, 246, 228, .16);
+  border: 0;
+  border-radius: 50%;
+  box-shadow: none;
+}
+.nav-socials a:hover, .nav-socials a:focus-visible {
+  color: #fff;
+  background: rgba(255, 246, 228, .3);
+  transform: translateY(-1px);
+  box-shadow: none;
+}
+.nav-socials a:active { transform: translateY(1px); box-shadow: none; }
+
+.menu-button {
+  background: rgba(255, 246, 228, .16);
+  border: 0;
+  border-radius: 12px;
+  box-shadow: none;
+}
+.menu-button:active { transform: translateY(1px); box-shadow: none; }
+.menu-button span { left: 12px; right: 12px; height: 3px; background: var(--cream); }
+.menu-button span:nth-child(1) { top: 14px; }
+.menu-button span:nth-child(2) { top: 21px; }
+.menu-button span:nth-child(3) { top: 28px; }
+.topbar.open .menu-button span:nth-child(1) { top: 21px; }
+.topbar.open .menu-button span:nth-child(3) { top: 21px; }
+
+@media (max-width: 640px) {
+  .topbar .links {
+    top: 100%;
+    background: var(--leaf-dark);
+    border-bottom: 0;
+  }
+}
+
+.trailer-frame {
+  padding: 0;
+  overflow: hidden;
+  background: none;
+  border: 0;
+  border-radius: 20px;
+  box-shadow: 0 18px 44px rgba(30, 18, 8, .26);
+}
+.trailer-frame iframe { border-radius: 0; }
+
+/* ---------- a fine woven tea-mat texture ---------- */
+
+:root {
+  --tea-mat:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 .85 0 0 0 .3 0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E"),
+    repeating-linear-gradient(90deg, rgba(255, 246, 228, .055) 0 1px, transparent 1px 6px),
+    repeating-linear-gradient(0deg, rgba(10, 30, 8, .2) 0 1px, transparent 1px 4px);
+}
+
+.topbar { background: var(--tea-mat), var(--leaf-dark); }
+.topbar.over-hero::before { background: var(--tea-mat), var(--leaf-dark); }
+
+@media (max-width: 640px) {
+  .topbar .links { background: var(--tea-mat), var(--leaf-dark); }
+}
+
+.trailer-frame {
+  padding: 8px;
+  background: var(--tea-mat), var(--leaf-dark);
+}
+.trailer-frame iframe { border-radius: 13px; }
