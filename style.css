@@ -495,3 +495,205 @@ footer p { margin: 10px 0 0; font-size: 15px; opacity: .9; }
 @media (min-width: 641px) {
   .topbar .links { display: flex; gap: 2px; }
 }
+
+/* ---------- social icons in the menu ---------- */
+
+.nav-socials { display: flex; align-items: center; gap: 8px; margin-left: 10px; }
+
+.nav-socials a {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  color: var(--wood-dark);
+  background: var(--cream);
+  border: 3px solid var(--wood-dark);
+  border-radius: 11px;
+  box-shadow: 0 3px 0 var(--wood-dark);
+  transition: transform .08s ease, box-shadow .08s ease, color .12s ease;
+}
+.nav-socials a:hover, .nav-socials a:focus-visible { transform: translateY(-2px); box-shadow: 0 5px 0 var(--wood-dark); color: var(--leaf); }
+.nav-socials a:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--wood-dark); }
+.nav-socials svg { width: 19px; height: 19px; display: block; }
+
+/* ---------- the hero card, as a wooden sign ---------- */
+
+.hero-clip { position: relative; }
+.hero-stage { position: relative; }
+.hero-art { display: block; width: 100%; }
+
+.hero .hero-card {
+  z-index: 3;
+  max-width: 760px;
+  padding: 18px 28px 22px;
+  background: repeating-linear-gradient(180deg, var(--wood-light) 0 22px, var(--wood) 22px 24px);
+}
+
+.hero .tagline {
+  margin: 0 0 12px;
+  color: var(--cream);
+  text-shadow:
+    -3px 0 var(--leaf-dark), 3px 0 var(--leaf-dark), 0 -3px var(--leaf-dark), 0 3px var(--leaf-dark),
+    -2px -2px var(--leaf-dark), 2px 2px var(--leaf-dark), -2px 2px var(--leaf-dark), 2px -2px var(--leaf-dark);
+}
+
+.follow { position: relative; display: flex; }
+.follow .btn { cursor: pointer; }
+
+.follow-pop {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  bottom: calc(100% + 14px);
+  transform: translateX(-50%);
+  width: 196px;
+  padding: 6px;
+  background: var(--parchment);
+  border: 4px solid var(--wood-dark);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+.follow-pop[hidden] { display: none; }
+.follow-pop a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 12px;
+  color: var(--ink);
+  text-decoration: none;
+  border-radius: 9px;
+  font: 600 19px "Pixelify Sans", system-ui, sans-serif;
+}
+.follow-pop a:hover, .follow-pop a:focus-visible { background: rgba(107, 58, 32, 0.14); }
+.follow-pop svg { width: 20px; height: 20px; flex: none; color: var(--wood-dark); }
+
+/* ---------- gentle motion ---------- */
+
+.hero-clip { overflow: hidden; }
+
+.petal {
+  position: absolute;
+  top: -30px;
+  width: var(--size, 10px);
+  height: var(--size, 10px);
+  pointer-events: none;
+  background: #fff3ec;
+  border-radius: 75% 0 75% 0;
+  opacity: .9;
+  box-shadow: inset -1px -1px 0 rgba(226, 164, 164, .75);
+  animation: petal-fall 16s linear infinite;
+}
+.petal.leaf { background: #8cc266; box-shadow: inset -1px -1px 0 rgba(47, 107, 44, .6); }
+
+@keyframes petal-fall {
+  0% { transform: translate3d(0, -40px, 0) rotate(0deg); }
+  50% { transform: translate3d(var(--drift, 80px), 52vh, 0) rotate(200deg); }
+  100% { transform: translate3d(calc(var(--drift, 80px) * .4), 108vh, 0) rotate(400deg); }
+}
+
+.steam {
+  position: absolute;
+  left: 55.9%;
+  top: 27.5%;
+  width: 1.1%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .85);
+  filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  animation: steam-rise 4.8s ease-out infinite;
+}
+.steam.s2 { animation-delay: -1.6s; left: 56.4%; }
+.steam.s3 { animation-delay: -3.2s; left: 55.5%; }
+
+@keyframes steam-rise {
+  0% { transform: translate(0, 0) scale(.55); opacity: 0; }
+  20% { opacity: .75; }
+  100% { transform: translate(14px, -520%) scale(1.7); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .petal, .steam { display: none; }
+}
+
+/* ---------- full-screen hero on computers and tablets ---------- */
+
+@media (min-width: 641px) and (min-aspect-ratio: 5/4) {
+  .topbar.over-hero {
+    position: fixed;
+    left: 0;
+    right: 0;
+    background: linear-gradient(180deg, rgba(36, 22, 12, .62), rgba(36, 22, 12, 0));
+    border-bottom: 0;
+    box-shadow: none;
+  }
+  .topbar.over-hero::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: repeating-linear-gradient(180deg, var(--wood) 0 14px, var(--wood-light) 14px 15px, var(--wood) 15px 28px);
+    border-bottom: 5px solid var(--wood-dark);
+    box-shadow: 0 4px 14px rgba(63, 42, 29, 0.25);
+    opacity: 0;
+    transition: opacity .25s ease;
+  }
+  .topbar.over-hero.scrolled::before { opacity: 1; }
+  .topbar.over-hero .home { transition: opacity .25s ease, visibility .25s; }
+  .topbar.over-hero:not(.scrolled) .home { opacity: 0; visibility: hidden; }
+
+  .hero {
+    --hero-h: max(100vh, 560px);
+    --stage-w: max(100vw, calc(var(--hero-h) * 1.9268));
+    max-width: none;
+    height: var(--hero-h);
+  }
+  .hero-clip {
+    position: absolute;
+    inset: 0;
+    -webkit-mask-image: linear-gradient(180deg, #000 calc(100% - 70px), transparent 100%);
+            mask-image: linear-gradient(180deg, #000 calc(100% - 70px), transparent 100%);
+  }
+  .hero-stage {
+    position: absolute;
+    top: 0;
+    left: calc((100vw - var(--stage-w)) * .2);
+    width: var(--stage-w);
+    transform: translate3d(var(--px, 0), var(--py, 0), 0) scale(1.03);
+    transition: transform .5s ease-out;
+    will-change: transform;
+  }
+  .hero-art {
+    aspect-ratio: auto;
+    height: auto;
+    -webkit-mask-image: none;
+            mask-image: none;
+  }
+  .hero .hero-card {
+    position: absolute;
+    left: 50%;
+    bottom: 54px;
+    width: calc(100% - 48px);
+    margin: 0;
+    transform: translateX(-50%);
+  }
+}
+
+/* The menu has less room just above phone size. */
+@media (min-width: 641px) and (max-width: 800px) {
+  .topbar nav a.link { padding: 6px 5px; font-size: 17px; }
+  .nav-socials { gap: 5px; margin-left: 4px; }
+  .nav-socials a { width: 32px; height: 32px; }
+  .nav-socials svg { width: 16px; height: 16px; }
+}
+
+@media (max-width: 640px) {
+  .nav-socials { margin: 12px 8px 4px; gap: 12px; }
+  .hero .hero-card { padding: 16px 16px 20px; }
+  .hero .tagline { font-size: 28px; }
+  .hero .platforms { font-size: 15px; margin-bottom: 14px; }
+  .hero .buttons { gap: 8px; flex-wrap: nowrap; }
+  .hero .btn { padding: 9px 11px; font-size: 16px; white-space: nowrap; }
+  .follow-pop { bottom: calc(100% + 10px); }
+}
